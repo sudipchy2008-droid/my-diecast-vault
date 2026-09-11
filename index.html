@@ -3,51 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Diecast Vault</title>
+    <title>DIECAST VAULT | Exclusive Collection</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome Pro Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!-- Background glow elements -->
-    <div class="bg-glow glow-1"></div>
-    <div class="bg-glow glow-2"></div>
+    <!-- Particle Background Canvas -->
+    <canvas id="particlesCanvas"></canvas>
 
     <!-- Header Section -->
     <header>
-        <div class="logo">
-            <i class="fa-solid fa-car-side"></i>
-            <span>DIECAST<b>VAULT</b></span>
+        <div class="logo-container">
+            <i class="fa-solid fa-car-tunnel logo-icon"></i>
+            <h1 class="logo-text">DIECAST<span>VAULT</span></h1>
         </div>
-        <p class="subtitle">A curated personal collection of precision die-cast models</p>
+        <p class="subtitle">Curated Showcase of Rare Precision Scale Replica Models</p>
     </header>
 
-    <!-- Sector / Brand Filters -->
+    <!-- Sector Filters -->
     <section class="filter-section">
         <button class="filter-btn active" data-category="all">
-            <i class="fa-solid fa-border-all"></i> All Cars
+            <i class="fa-solid fa-shapes"></i> All Collection
         </button>
         <button class="filter-btn" data-category="hotwheels">
-            <i class="fa-solid fa-fire"></i> Hot Wheels
+            <i class="fa-solid fa-fire-flame-curved"></i> Hot Wheels
         </button>
         <button class="filter-btn" data-category="bburago">
-            <i class="fa-solid fa-trophy"></i> Bburago
+            <i class="fa-solid fa-shield-halved"></i> Bburago
         </button>
         <button class="filter-btn" data-category="cca">
-            <i class="fa-solid fa-flag-checkered"></i> CCA
+            <i class="fa-solid fa-gauge-high"></i> CCA
         </button>
         <button class="filter-btn" data-category="posters">
-            <i class="fa-solid fa-image"></i> Posters & Art
+            <i class="fa-solid fa-palette"></i> Posters & Art
         </button>
     </section>
 
-    <!-- Cars Grid Showcase -->
+    <!-- Collection Grid -->
     <main class="collection-grid" id="carGrid">
-        <!-- Javascript dynamic content load hobe ekhane -->
+        <!-- JS dynamic content -->
     </main>
+
+    <!-- Detailed Modal Popup -->
+    <div class="modal-overlay" id="carModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose"><i class="fa-solid fa-xmark"></i></button>
+            <div class="modal-body">
+                <div class="modal-img-box">
+                    <img id="modalImg" src="" alt="Car Image">
+                    <span id="modalScale" class="modal-scale"></span>
+                </div>
+                <div class="modal-details">
+                    <span id="modalBrand" class="modal-brand"></span>
+                    <h2 id="modalTitle" class="modal-title"></h2>
+                    <p id="modalDesc" class="modal-desc"></p>
+                    
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <span class="spec-label"><i class="fa-regular fa-calendar-days"></i> Year</span>
+                            <span id="modalYear" class="spec-val"></span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label"><i class="fa-solid fa-sparkles"></i> Condition</span>
+                            <span id="modalCondition" class="spec-val"></span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label"><i class="fa-solid fa-layer-group"></i> Material</span>
+                            <span id="modalMaterial" class="spec-val"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>

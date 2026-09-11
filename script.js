@@ -1,4 +1,4 @@
-// Data List (আরো বিস্তারিত তথ্যসহ)
+// Data List
 const diecastCars = [
     {
         id: 1,
@@ -128,7 +128,7 @@ filterBtns.forEach(btn => {
 // Initial Render
 renderCars(diecastCars);
 
-/* --- Background Animated Particles --- */
+/* --- High-Density Animated Particles --- */
 const canvas = document.getElementById('particlesCanvas');
 const ctx = canvas.getContext('2d');
 
@@ -145,10 +145,10 @@ class Particle {
     constructor() {
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
-        this.size = Math.random() * 2 + 0.5;
-        this.speedX = (Math.random() - 0.5) * 0.4;
-        this.speedY = (Math.random() - 0.5) * 0.4;
-        this.alpha = Math.random() * 0.5 + 0.2;
+        this.size = Math.random() * 2.5 + 0.8;
+        this.speedX = (Math.random() - 0.5) * 0.8;
+        this.speedY = (Math.random() - 0.5) * 0.8;
+        this.alpha = Math.random() * 0.6 + 0.3;
     }
     update() {
         this.x += this.speedX;
@@ -166,7 +166,8 @@ class Particle {
 
 function initParticles() {
     particles = [];
-    const count = Math.floor((canvas.width * canvas.height) / 15000);
+    // ঘন পার্টিকেলের সংখ্যা বাড়ানো হলো (Density Multiplier)
+    const count = Math.floor((canvas.width * canvas.height) / 5500);
     for (let i = 0; i < count; i++) {
         particles.push(new Particle());
     }
@@ -174,10 +175,27 @@ function initParticles() {
 
 function animateParticles() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    particles.forEach(p => {
-        p.update();
-        p.draw();
-    });
+    
+    // কানেক্টিং লাইট লাইন আঁকার ব্যবস্থা
+    for (let i = 0; i < particles.length; i++) {
+        particles[i].update();
+        particles[i].draw();
+
+        for (let j = i + 1; j < particles.length; j++) {
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+
+            if (dist < 90) {
+                ctx.strokeStyle = `rgba(255, 51, 68, ${0.15 - dist / 600})`;
+                ctx.lineWidth = 0.5;
+                ctx.beginPath();
+                ctx.moveTo(particles[i].x, particles[i].y);
+                ctx.lineTo(particles[j].x, particles[j].y);
+                ctx.stroke();
+            }
+        }
+    }
     requestAnimationFrame(animateParticles);
 }
 

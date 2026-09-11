@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Diecast Vault</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Background glow elements -->
+    <div class="bg-glow glow-1"></div>
+    <div class="bg-glow glow-2"></div>
+
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <i class="fa-solid fa-car-side"></i>
+            <span>DIECAST<b>VAULT</b></span>
+        </div>
+        <p class="subtitle">A curated personal collection of precision die-cast models</p>
+    </header>
+
+    <!-- Sector / Brand Filters -->
+    <section class="filter-section">
+        <button class="filter-btn active" data-category="all">
+            <i class="fa-solid fa-border-all"></i> All Cars
+        </button>
+        <button class="filter-btn" data-category="hotwheels">
+            <i class="fa-solid fa-fire"></i> Hot Wheels
+        </button>
+        <button class="filter-btn" data-category="bburago">
+            <i class="fa-solid fa-trophy"></i> Bburago
+        </button>
+        <button class="filter-btn" data-category="cca">
+            <i class="fa-solid fa-flag-checkered"></i> CCA
+        </button>
+        <button class="filter-btn" data-category="posters">
+            <i class="fa-solid fa-image"></i> Posters & Art
+        </button>
+    </section>
+
+    <!-- Cars Grid Showcase -->
+    <main class="collection-grid" id="carGrid">
+        <!-- Javascript dynamic content load hobe ekhane -->
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

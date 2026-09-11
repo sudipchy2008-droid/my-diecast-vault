@@ -1,52 +1,37 @@
-// Data List
+// Tomar F1 Diecast Collection Data
 const diecastCars = [
     {
         id: 1,
-        title: "Nissan Skyline GT-R (R34)",
-        category: "hotwheels",
-        brand: "Hot Wheels Premium",
-        scale: "1:64",
-        year: "2023 Release",
-        condition: "Mint in Box",
-        material: "Die-cast Metal",
-        image: "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?q=80&w=800&auto=format&fit=crop",
-        description: "Iconic Bayside Blue Japanese tuner legend featuring Real Riders rubber tires and fully detailed interior craftsmanship."
+        title: "Mercedes-AMG F1 W16 E Performance (No. 12 - Andrea Kimi Antonelli)",
+        category: "bburago",
+        brand: "Bburago / Formula 1",
+        scale: "1:43",
+        year: "2025 Season / F1 Grand Prix Series",
+        condition: "Mint / Brand New in Box",
+        material: "Die-cast Metal with Plastic & Rubber Components",
+        color: "Silver & Black Gradient with Petronas Emerald Green Accents",
+        image: "https://hobbycenterbd.com/wp-content/uploads/2026/02/WhatsApp-Image-2026-03-03-at-11.14.00-1.jpeg",
+        images: [
+            "https://hobbycenterbd.com/wp-content/uploads/2026/02/WhatsApp-Image-2026-03-03-at-11.14.00-1.jpeg",
+            "https://hobbycenterbd.com/wp-content/uploads/2026/02/WhatsApp-Image-2026-03-03-at-11.14.00-2-300x300.jpeg"
+        ],
+        description: "• Driver Car No. 12: Represents the debut Formula 1 race car of Italian driver Andrea Kimi Antonelli.\n• Aerodynamic Design: Detailed ground-effect aerodynamics, finely crafted front and rear wings, and an accurate Halo safety system.\n• Livery & Sponsor Decals: Iconic Silver Arrow and matte black color scheme featuring high-precision Petronas, INEOS, AMD, and official team sponsor logos.\n• Real Rubber Tires: Replica Pirelli racing tires with accurate wheel rim designs and detailing."
     },
     {
         id: 2,
-        title: "Ferrari F40 Supercar",
+        title: "Oracle Red Bull Racing RB21 Special White Livery (No. 1 - Max Verstappen)",
         category: "bburago",
-        brand: "Bburago Race Series",
-        scale: "1:24",
-        year: "2021 Release",
-        condition: "Display Case",
-        material: "Metal & Plastic",
-        image: "https://images.unsplash.com/photo-1583121274602-3e2820c69888?q=80&w=800&auto=format&fit=crop",
-        description: "Classic Rossa Corsa red Ferrari F40 edition with fully opening engine bay doors and active front wheel steering system."
-    },
-    {
-        id: 3,
-        title: "Porsche 911 GT3 RS",
-        category: "cca",
-        brand: "CCA Racing Spec",
+        brand: "Bburago / Formula 1",
         scale: "1:43",
-        year: "2024 Edition",
-        condition: "Brand New",
-        material: "Zinc Alloy",
-        image: "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=800&auto=format&fit=crop",
-        description: "Track-focused track monster in Weissach Package trims with clear carbon rear wing details and high precision brake calipers."
-    },
-    {
-        id: 4,
-        title: "Vintage Racing Heritage Art",
-        category: "posters",
-        brand: "Art & Posters",
-        scale: "A3 Canvas",
-        year: "Collector Edition",
-        condition: "Framed",
-        material: "Matte Print",
-        image: "https://images.unsplash.com/photo-1563720223185-11003d516935?q=80&w=800&auto=format&fit=crop",
-        description: "Minimalist vintage automotive artwork capturing classic Le Mans endurance racing history."
+        year: "2025 Season / F1 Special Edition",
+        condition: "Mint / Brand New in Box",
+        material: "Die-cast Metal with Plastic & Rubber Components",
+        color: "Championship White & Red (Honda Tribute Livery)",
+        image: "https://hobbycenterbd.com/wp-content/uploads/2026/02/WhatsApp-Image-2026-03-03-at-11.14.00.jpeg",
+        images: [
+            "https://hobbycenterbd.com/wp-content/uploads/2026/02/WhatsApp-Image-2026-03-03-at-11.14.00.jpeg"
+        ],
+        description: "• Car No. 1: Features car number 1, belonging to multi-time World Champion Max Verstappen.\n• Special Tribute Livery: One-off white and red livery honoring Honda and the historic 1965 Honda RA272 F1 car.\n• Aerodynamic & Safety Detail: Features accurate 2025 ground-effect floor detailing, intricate front/rear wing elements, and a halo safety ring.\n• Sponsor Decals: Precise placement of Honda 'H' branding, Oracle, Red Bull, and team sponsor logos on a matte white finish.\n• Real Rubber Tires: High-detail Pirelli racing slicks mounted on authentic wheel rims."
     }
 ];
 
@@ -69,6 +54,11 @@ const modalMaterial = document.getElementById('modalMaterial');
 function renderCars(cars) {
     carGrid.innerHTML = '';
     
+    if (cars.length === 0) {
+        carGrid.innerHTML = `<p style="text-align: center; color: var(--text-muted); grid-column: 1/-1; padding: 2rem;">No cars found in this category.</p>`;
+        return;
+    }
+
     cars.forEach(car => {
         const cardHTML = `
             <div class="car-card" onclick="openModal(${car.id})">
@@ -79,7 +69,7 @@ function renderCars(cars) {
                 <div class="card-info">
                     <span class="brand-badge">${car.brand}</span>
                     <h3 class="car-title">${car.title}</h3>
-                    <p class="car-desc">${car.description}</p>
+                    <p class="car-desc">${car.description.replace(/\n/g, '<br>')}</p>
                 </div>
             </div>
         `;
@@ -96,10 +86,19 @@ function openModal(id) {
     modalScale.innerText = car.scale;
     modalBrand.innerText = car.brand;
     modalTitle.innerText = car.title;
-    modalDesc.innerText = car.description;
+    modalDesc.innerHTML = car.description.replace(/\n/g, '<br>');
     modalYear.innerText = car.year;
     modalCondition.innerText = car.condition;
     modalMaterial.innerText = car.material;
+
+    // Multi-image Support (২টি ছবি থাকলে পপ-আপের ছবি ক্লিক করলে সুইচ হবে)
+    let currentImgIndex = 0;
+    modalImg.onclick = () => {
+        if (car.images && car.images.length > 1) {
+            currentImgIndex = (currentImgIndex + 1) % car.images.length;
+            modalImg.src = car.images[currentImgIndex];
+        }
+    };
 
     modal.classList.add('active');
 }
@@ -166,7 +165,6 @@ class Particle {
 
 function initParticles() {
     particles = [];
-    // ঘন পার্টিকেলের সংখ্যা বাড়ানো হলো (Density Multiplier)
     const count = Math.floor((canvas.width * canvas.height) / 5500);
     for (let i = 0; i < count; i++) {
         particles.push(new Particle());
@@ -176,7 +174,6 @@ function initParticles() {
 function animateParticles() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     
-    // কানেক্টিং লাইট লাইন আঁকার ব্যবস্থা
     for (let i = 0; i < particles.length; i++) {
         particles[i].update();
         particles[i].draw();

@@ -10,7 +10,6 @@ const diecastCars = [
         condition: "Mint / Brand New in Box",
         material: "Die-cast Metal with Plastic & Rubber Components",
         color: "Silver & Black Gradient with Petronas Emerald Green Accents",
-        image: "https://hobbycenterbd.com/wp-content/uploads/2026/02/WhatsApp-Image-2026-03-03-at-11.14.00-1.jpeg",
         images: [
             "https://hobbycenterbd.com/wp-content/uploads/2026/02/WhatsApp-Image-2026-03-03-at-11.14.00-1.jpeg",
             "https://hobbycenterbd.com/wp-content/uploads/2026/02/WhatsApp-Image-2026-03-03-at-11.14.00-2-300x300.jpeg"
@@ -27,7 +26,6 @@ const diecastCars = [
         condition: "Mint / Brand New in Box",
         material: "Die-cast Metal with Plastic & Rubber Components",
         color: "Championship White & Red (Honda Tribute Livery)",
-        image: "https://hobbycenterbd.com/wp-content/uploads/2026/02/WhatsApp-Image-2026-03-03-at-11.14.00.jpeg",
         images: [
             "https://hobbycenterbd.com/wp-content/uploads/2026/02/WhatsApp-Image-2026-03-03-at-11.14.00.jpeg"
         ],
@@ -50,8 +48,14 @@ const modalYear = document.getElementById('modalYear');
 const modalCondition = document.getElementById('modalCondition');
 const modalMaterial = document.getElementById('modalMaterial');
 
+let imageSliders = []; // Active intervals keep korar jonno
+
 // Render Cars Grid
 function renderCars(cars) {
+    // Clear previous intervals
+    imageSliders.forEach(interval => clearInterval(interval));
+    imageSliders = [];
+
     carGrid.innerHTML = '';
     
     if (cars.length === 0) {
@@ -60,10 +64,12 @@ function renderCars(cars) {
     }
 
     cars.forEach(car => {
+        const primaryImage = car.images && car.images.length > 0 ? car.images[0] : '';
+        
         const cardHTML = `
             <div class="car-card" onclick="openModal(${car.id})">
                 <div class="card-img-wrapper">
-                    <img src="${car.image}" alt="${car.title}">
+                    <img id="card-img-${car.id}" src="${primaryImage}" alt="${car.title}">
                     <span class="scale-tag">${car.scale}</span>
                 </div>
                 <div class="card-info">
@@ -75,6 +81,27 @@ function renderCars(cars) {
         `;
         carGrid.innerHTML += cardHTML;
     });
+
+    // Auto Image Switcher Loop (Multiple images thakle main page e auto switch hobe)
+    cars.forEach(car => {
+        if (car.images && car.images.length > 1) {
+            let index = 0;
+            const imgElement = document.getElementById(`card-img-${car.id}`);
+
+            const slider = setInterval(() => {
+                if (imgElement) {
+                    imgElement.style.opacity = '0.3';
+                    setTimeout(() => {
+                        index = (index + 1) % car.images.length;
+                        imgElement.src = car.images[index];
+                        imgElement.style.opacity = '1';
+                    }, 300);
+                }
+            }, 3000); // 3 seconds interval
+
+            imageSliders.push(slider);
+        }
+    });
 }
 
 // Open Modal Pop-up
@@ -82,7 +109,7 @@ function openModal(id) {
     const car = diecastCars.find(item => item.id === id);
     if (!car) return;
 
-    modalImg.src = car.image;
+    modalImg.src = car.images[0];
     modalScale.innerText = car.scale;
     modalBrand.innerText = car.brand;
     modalTitle.innerText = car.title;
@@ -91,12 +118,16 @@ function openModal(id) {
     modalCondition.innerText = car.condition;
     modalMaterial.innerText = car.material;
 
-    // Multi-image Support (২টি ছবি থাকলে পপ-আপের ছবি ক্লিক করলে সুইচ হবে)
+    // Modal Image Click Switcher
     let currentImgIndex = 0;
     modalImg.onclick = () => {
         if (car.images && car.images.length > 1) {
-            currentImgIndex = (currentImgIndex + 1) % car.images.length;
-            modalImg.src = car.images[currentImgIndex];
+            modalImg.style.opacity = '0.3';
+            setTimeout(() => {
+                currentImgIndex = (currentImgIndex + 1) % car.images.length;
+                modalImg.src = car.images[currentImgIndex];
+                modalImg.style.opacity = '1';
+            }, 200);
         }
     };
 

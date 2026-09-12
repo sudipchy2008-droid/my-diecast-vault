@@ -1,4 +1,4 @@
-// Tomar Diecast Collection Data
+// Diecast Collection Data
 const diecastCars = [
     {
         id: 1,
@@ -64,6 +64,24 @@ const diecastCars = [
             "https://www.thewarehouse.co.nz/dw/image/v2/BDMG_PRD/on/demandware.static/-/Sites-twl-master-catalog/default/dw9d299b7c/images/hi-res/D7/01/R3054769_40.jpg?sw=765&sh=765"
         ],
         description: "• Driver Car No. 4: Features car number 4 belonging to British Formula 1 driver Lando Norris.\n• Official Licensed Livery: Precision tampo-printed McLaren livery with official sponsor decals including OKX, Mastercard, Google Chrome, and Android branding.\n• Detailed Aerodynamics: Ground-effect floor design, intricate front/rear wings, sidepod inlets, and Halo safety structure.\n• Authentic Cockpit & Helmet Detail: Replicated cockpit cell with detailed steering wheel and miniature helmet graphics.\n• Real Rubber Tires: Pirelli replica racing tires mounted on accurate multi-spoke wheel rims."
+    },
+    {
+        id: 5,
+        title: "LB★WORKS Lamborghini Huracán GT \"RONIN\" Limited Edition",
+        category: "minigt",
+        brand: "Mini GT (TSM Model) / Liberty Walk Collection",
+        scale: "1:64",
+        year: "Mini GT Limited Edition Series",
+        condition: "Mint / Brand New in Box (Blister Pack or Paper Box)",
+        material: "Die-cast Metal Chassis & Body with Plastic & Rubber Components",
+        color: "Gray Metallic with Gloss Black & Crimson Red Graphics",
+        images: [
+            "https://minigt.tsm-models.com/upload/picfile_list/9a4f18c8e49232ca265471b276eab2ea20251214234834896.JPG",
+            "https://minigt.tsm-models.com/upload/picfile_list/6e70e309fd589ecb1c3bbe009df0d19320251214234834901.JPG",
+            "https://minigt.tsm-models.com/upload/picfile_list/da848c9e74269bb41934ea3d662c478c20251214234834904.JPG",
+            "https://minigt.tsm-models.com/upload/picfile_list/ac3ac903af3d8a276a2e0feb1cfe8f3520260830003656949.JPG"
+        ],
+        description: "• Exclusive \"RONIN\" Livery: Distinctive custom graphic wrap featuring metallic gray base paint paired with aggressive black panels, red accents, and specialized tuner branding.\n• Liberty Walk Widebody Styling: High-precision casting showcasing LB★WORKS bolt-on wide fender flares, prominent front splitter, side air-diffusers, and a massive GT rear wing.\n• Premium Metal-on-Metal Construction: Full metal chassis and die-cast body structure delivering authentic weight and durability.\n• Real Rubber Tires & Custom Wheels: Deep-dish blacked-out racing rims fitted with real treaded rubber tires for smooth rolling and realism.\n• Soft Rubber Mirrors: Signature Mini GT flexible side mirrors designed to absorb light impacts without breaking."
     }
 ];
 
@@ -230,7 +248,7 @@ class Particle {
 function initParticles() {
     particles = [];
     const count = Math.floor((canvas.width * canvas.height) / 5500);
-    for (let i = 0; i < count; i++) {
+    for (i = 0; i < count; i++) {
         particles.push(new Particle());
     }
 }

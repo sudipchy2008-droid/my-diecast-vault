@@ -1,4 +1,4 @@
-// Tomar F1 Diecast Collection Data
+// Tomar Diecast Collection Data
 const diecastCars = [
     {
         id: 1,
@@ -30,6 +30,23 @@ const diecastCars = [
             "https://hobbycenterbd.com/wp-content/uploads/2026/02/WhatsApp-Image-2026-03-03-at-11.14.00.jpeg"
         ],
         description: "• Car No. 1: Features car number 1, belonging to multi-time World Champion Max Verstappen.\n• Special Tribute Livery: One-off white and red livery honoring Honda and the historic 1965 Honda RA272 F1 car.\n• Aerodynamic & Safety Detail: Features accurate 2025 ground-effect floor detailing, intricate front/rear wing elements, and a halo safety ring.\n• Sponsor Decals: Precise placement of Honda 'H' branding, Oracle, Red Bull, and team sponsor logos on a matte white finish.\n• Real Rubber Tires: High-detail Pirelli racing slicks mounted on authentic wheel rims."
+    },
+    {
+        id: 3,
+        title: "Porsche 911 GT3 R #77 AO Racing \"Rexy / Spike\" (IMSA Petit Le Mans)",
+        category: "minigt",
+        brand: "Mini GT",
+        scale: "1:64",
+        year: "2025 Season / IMSA Endurance Series Special Edition",
+        condition: "Mint / Brand New in Box",
+        material: "Die-cast Metal with Plastic & Rubber Components",
+        color: "Bright Green (\"Rexy\" T-Rex Livery) / Special Skeleton Livery",
+        images: [
+            "https://minigt.tsm-models.com/upload/picfile_list/588d0343f494b010c56a66e903d8449720260830005036166.JPG",
+            "https://minigt.tsm-models.com/upload/picfile_list/1157a337f7c556c79f87841e4b32454220260106205322244.JPG",
+            "https://minigt.tsm-models.com/upload/picfile_list/f5b9c5a4251436e7bd5d4fc5b111c93920260106205322247.JPG"
+        ],
+        description: "• Iconic Fan-Favorite Livery: Features the famous AO Racing \"Rexy\" T-Rex design complete with dinosaur sharp teeth on the front bumper and eye decals above the headlights.\n• Car #77 GTD Pro Spec: Features accurate IMSA GTD Pro class red number panels, windshield banners, and official IMSA partner decals.\n• Aggressive Aerodynamics: Includes precision-molded swan-neck rear wing, widebody GT3 fender vents, front dive planes, and rear diffuser.\n• Authentic Race Detailing: Equipped with high-detail Michelin racing slicks, detailed brake discs behind custom rims, and authentic race cockpit roll-cage structure."
     }
 ];
 
@@ -46,13 +63,12 @@ const modalTitle = document.getElementById('modalTitle');
 const modalDesc = document.getElementById('modalDesc');
 const modalYear = document.getElementById('modalYear');
 const modalCondition = document.getElementById('modalCondition');
-const modalMaterial = document.getElementById('modalMaterial');
+modalMaterial = document.getElementById('modalMaterial');
 
-let imageSliders = []; // Active intervals keep korar jonno
+let imageSliders = [];
 
 // Render Cars Grid
 function renderCars(cars) {
-    // Clear previous intervals
     imageSliders.forEach(interval => clearInterval(interval));
     imageSliders = [];
 
@@ -82,7 +98,7 @@ function renderCars(cars) {
         carGrid.innerHTML += cardHTML;
     });
 
-    // Auto Image Switcher Loop (Multiple images thakle main page e auto switch hobe)
+    // Auto Image Switcher Loop
     cars.forEach(car => {
         if (car.images && car.images.length > 1) {
             let index = 0;
@@ -97,7 +113,7 @@ function renderCars(cars) {
                         imgElement.style.opacity = '1';
                     }, 300);
                 }
-            }, 3000); // 3 seconds interval
+            }, 3000);
 
             imageSliders.push(slider);
         }

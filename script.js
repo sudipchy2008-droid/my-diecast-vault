@@ -47,6 +47,23 @@ const diecastCars = [
             "https://minigt.tsm-models.com/upload/picfile_list/f5b9c5a4251436e7bd5d4fc5b111c93920260106205322247.JPG"
         ],
         description: "• Iconic Fan-Favorite Livery: Features the famous AO Racing \"Rexy\" T-Rex design complete with dinosaur sharp teeth on the front bumper and eye decals above the headlights.\n• Car #77 GTD Pro Spec: Features accurate IMSA GTD Pro class red number panels, windshield banners, and official IMSA partner decals.\n• Aggressive Aerodynamics: Includes precision-molded swan-neck rear wing, widebody GT3 fender vents, front dive planes, and rear diffuser.\n• Authentic Race Detailing: Equipped with high-detail Michelin racing slicks, detailed brake discs behind custom rims, and authentic race cockpit roll-cage structure."
+    },
+    {
+        id: 4,
+        title: "McLaren F1 MCL39 (No. 4 - Lando Norris)",
+        category: "bburago",
+        brand: "Bburago / Formula 1",
+        scale: "1:43",
+        year: "2025 Season / Bburago F1 Racing Series",
+        condition: "Mint / Brand New in Box",
+        material: "Die-cast Metal Chassis & Body with Plastic & Rubber Components",
+        color: "Signature Papaya Orange & Anthracite Black",
+        images: [
+            "https://www.thewarehouse.co.nz/dw/image/v2/BDMG_PRD/on/demandware.static/-/Sites-twl-master-catalog/default/dw794c9806/images/hi-res/D7/01/R3054769_30.jpg?sw=765&sh=765",
+            "https://www.thewarehouse.co.nz/dw/image/v2/BDMG_PRD/on/demandware.static/-/Sites-twl-master-catalog/default/dw6546f722/images/hi-res/D7/01/R3054769_41.jpg?sw=765&sh=765",
+            "https://www.thewarehouse.co.nz/dw/image/v2/BDMG_PRD/on/demandware.static/-/Sites-twl-master-catalog/default/dw9d299b7c/images/hi-res/D7/01/R3054769_40.jpg?sw=765&sh=765"
+        ],
+        description: "• Driver Car No. 4: Features car number 4 belonging to British Formula 1 driver Lando Norris.\n• Official Licensed Livery: Precision tampo-printed McLaren livery with official sponsor decals including OKX, Mastercard, Google Chrome, and Android branding.\n• Detailed Aerodynamics: Ground-effect floor design, intricate front/rear wings, sidepod inlets, and Halo safety structure.\n• Authentic Cockpit & Helmet Detail: Replicated cockpit cell with detailed steering wheel and miniature helmet graphics.\n• Real Rubber Tires: Pirelli replica racing tires mounted on accurate multi-spoke wheel rims."
     }
 ];
 
@@ -63,7 +80,7 @@ const modalTitle = document.getElementById('modalTitle');
 const modalDesc = document.getElementById('modalDesc');
 const modalYear = document.getElementById('modalYear');
 const modalCondition = document.getElementById('modalCondition');
-modalMaterial = document.getElementById('modalMaterial');
+const modalMaterial = document.getElementById('modalMaterial');
 
 let imageSliders = [];
 

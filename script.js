@@ -2,6 +2,23 @@
 const diecastCars = [
     {
         id: 1,
+        title: "Porsche 911 GT3 R #77 AO Racing "Rexy / Spike" (IMSA Petit Le Mans)",
+        category: "mini gt",
+        brand: "Mini GT",
+        scale: "1:43",
+        year: "2025 Season / IMSA Endurance Series Special Edition",
+        condition: "Mint / Brand New in Box",
+        material: "Die-cast Metal with Plastic & Rubber Components",
+        color: "Bright Green ("Rexy" T-Rex Livery) or Special Skeleton/Halloween Special Livery",
+        images: [
+            " https://minigt.tsm-models.com/upload/picfile_list/588d0343f494b010c56a66e903d8449720260830005036166.JPGn",
+            "https://minigt.tsm-models.com/upload/picfile_list/1157a337f7c556c79f87841e4b32454220260106205322244.JPG"
+            "https://minigt.tsm-models.com/upload/picfile_list/f5b9c5a4251436e7bd5d4fc5b111c93920260106205322247.JPG "
+        ],
+        description: "•	Iconic Fan-Favorite Livery: Features the famous AO Racing "Rexy" T-Rex design (or special Petit Le Mans end-of-season variant) complete with dinosaur sharp teeth on the front bumper and eye decals above the headlights\n•Car #77 GTD Pro Spec: Features accurate IMSA GTD Pro class red number panels, windshield banners, and official IMSA partner decals\n•  •	Aggressive Aerodynamics: Includes precision-molded swan-neck rear wing, widebody GT3 fender vents, front dive planes, and rear diffuser\n• •	Authentic Race Detailing: Equipped with high-detail Michelin racing slicks, detailed brake discs behind custom rims, and authentic race cockpit roll-cage structure."
+    },
+    {
+        id: 2,
         title: "Mercedes-AMG F1 W16 E Performance (No. 12 - Andrea Kimi Antonelli)",
         category: "bburago",
         brand: "Bburago / Formula 1",
@@ -17,7 +34,7 @@ const diecastCars = [
         description: "• Driver Car No. 12: Represents the debut Formula 1 race car of Italian driver Andrea Kimi Antonelli.\n• Aerodynamic Design: Detailed ground-effect aerodynamics, finely crafted front and rear wings, and an accurate Halo safety system.\n• Livery & Sponsor Decals: Iconic Silver Arrow and matte black color scheme featuring high-precision Petronas, INEOS, AMD, and official team sponsor logos.\n• Real Rubber Tires: Replica Pirelli racing tires with accurate wheel rim designs and detailing."
     },
     {
-        id: 2,
+        id: 3,
         title: "Oracle Red Bull Racing RB21 Special White Livery (No. 1 - Max Verstappen)",
         category: "bburago",
         brand: "Bburago / Formula 1",

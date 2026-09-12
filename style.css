@@ -240,9 +240,10 @@ header {
     background: #0e121a;
     border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 24px;
-    max-width: 820px;
+    max-width: 880px;
     width: 100%;
-    overflow: hidden;
+    max-height: 90vh;
+    overflow-y: auto;
     position: relative;
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.9), 0 0 30px var(--accent-glow);
     transform: scale(0.9);
@@ -275,7 +276,7 @@ header {
 
 .modal-body {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.2fr 1fr;
 }
 
 @media (max-width: 768px) {
@@ -284,18 +285,27 @@ header {
     }
 }
 
-.modal-img-box {
+/* Landscape Modal Image Fixing */
+.modal-img-container {
     position: relative;
-    height: 100%;
-    min-height: 280px;
-    background: #05070a;
-}
-
-.modal-img-box img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    transition: opacity 0.5s ease;
+    min-height: 320px;
+    background: #05070a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+}
+
+.modal-img-container img {
+    width: 100%;
+    height: 100%;
+    max-height: 380px;
+    object-fit: contain; /* Image kata poddhoti bondho korbe */
+    aspect-ratio: 16 / 9; /* Landscape view ensure korbe */
+    transition: opacity 0.3s ease;
+    cursor: pointer;
 }
 
 .modal-scale {
@@ -322,14 +332,14 @@ header {
 }
 
 .modal-title {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     margin: 6px 0 12px 0;
     font-weight: 800;
 }
 
 .modal-desc {
     color: var(--text-muted);
-    font-size: 0.92rem;
+    font-size: 0.9rem;
     line-height: 1.6;
     margin-bottom: 1.8rem;
 }
@@ -356,6 +366,6 @@ header {
 }
 
 .spec-val {
-    font-size: 0.88rem;
+    font-size: 0.85rem;
     font-weight: 700;
 }
